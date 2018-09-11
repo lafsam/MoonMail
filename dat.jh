@@ -1,0 +1,144 @@
+entity Demande {
+	regionName String
+    demandeId Integer   
+    prestataire Integer   
+    dateDemande Timestamp 
+    demandePour Integer
+    demandeur Integer
+    celluleDemandeur Integer   
+    reference String    
+    typeDemande Integer   
+    motifDemande Integer
+    detailMotif String
+    reponse String    
+    dateReponse Timestamp 
+    dateReponsePrevue Timestamp 
+    dateReponseEffective Timestamp 
+    statutDemande Integer   
+    envoiInitial Timestamp
+    envoiRelance Timestamp 
+    commentaire String    
+    miseEnAttente Byte      
+}
+
+entity FormatImportExport {
+    formatid Integer 
+    libformat String  
+    tableTempImport String  
+    modeleExport String  
+    ligneChamps Integer 
+}
+
+entity ParamImportExcel {
+    formatParams Integer 
+    colonneXls String  
+    champTable String  
+    positionXls UByte   
+    obligatoire Byte    
+    listeDeValeurs String  
+    format String  
+    key Byte    
+}
+
+entity Rapport {
+    rapNum Integer 
+    rapNom String  
+    nomsource String  
+    cat UByte   
+}
+
+entity Rapport {
+    rapNum Integer 
+    rapNom String  
+    nomsource String  
+    cat UByte   
+}
+
+entity RefCellule {
+    celluleId Integer 
+    celluleLib String  
+    site Integer 
+}
+
+entity RefMotifDemande{
+    motifDemandeId Integer 
+    motifDemandeLib String  
+    detailOblig Byte    
+}
+
+entity RefPrestataire {
+    prestataireId Integer 
+    prestataireLib String  
+    prestataireEmail String  
+    formatExport Integer 
+    formatImport Integer 
+}
+
+entity RefSite {
+    siteId Integer 
+    siteLib String  
+    bal String  
+    copieMail String  
+    objetMail String  
+    textMail String  
+}
+
+entity RefStatut {
+    statutId Integer 
+    statutLib String  
+    fini Byte    
+    miseEnAttente Byte    
+}
+
+entity RefTypeDemande {
+    typeDemandeId Integer 
+    typeDemandeLib String  
+    delaiReponseRecall Integer 
+    verifAvantEnvoi Byte    
+}
+
+entity RefTypeHabilitation {
+    typehId Integer 
+    typehLib String  
+}
+
+entity RefUtilisateur {
+    utilisateurId Integer 
+    utilisateurLib String  
+    login String  
+    cellule Integer 
+    habilitation Integer 
+}
+
+entity RetourPrestataire {
+    retourId Integer   
+    demandeId Integer   
+    dateReponse Timestamp 
+    reponse String    
+    dateChargement Timestamp 
+    utilisateur Integer   
+}
+
+entity XlsMapCatStart {
+    cat UByte   
+    start Integer 
+    modele String  
+    filtreL Integer 
+    filtreC Integer 
+    libelleChampsL Integer 
+    libellechampsC Integer 
+    date String  
+}
+
+entity XlsRapCatx {
+    cat UByte  
+    position UByte  
+    champs String 
+    libellechamps String 
+}
+
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl 
